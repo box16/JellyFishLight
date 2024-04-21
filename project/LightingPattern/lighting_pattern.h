@@ -2,6 +2,7 @@
 
 #include "Pixel/pixel.h"
 #include "RGB/rgb.h"
+#include <cmath>
 
 class LightPatternInterface{
 public:
@@ -25,19 +26,17 @@ public:
     }
 };
 
-class SimplePattern : public LightPatternInterface {
+class FadePattern : public LightPatternInterface {
 public:
     void light_up(PixelInterface& pixel_interface, uint pixel_num, uint time) const {
-        uint x = time %3;
-        for (uint i = 0; i < pixel_num; i++){
-            if (x==0)
-                pixel_interface.light_up(RGB(0xff, 0, 0));
-            else if (x==1)
-                pixel_interface.light_up(RGB(0, 0xff, 0));
-            else if (x==2)
-                pixel_interface.light_up(RGB(0, 0, 0xff));
-            else
-                pixel_interface.light_up(RGB(0,0,0));       
+        double phase = (time % 360) * (M_PI / 180.0);  // 時間をラジアンに変換
+        uint8_t red_intensity = static_cast<uint8_t>((sin(phase) * 0.5 + 0.5) * 255);
+        uint8_t green_intensity = static_cast<uint8_t>((sin(phase + 2 * M_PI / 2) * 0.5 + 0.5) * 255);
+        uint8_t blue_intensity = static_cast<uint8_t>((sin(phase + 3 * M_PI / 2) * 0.5 + 0.5) * 255);
+
+        for (uint i = 0; i < pixel_num; i++) {
+            pixel_interface.light_up(RGB(red_intensity, green_intensity, blue_intensity));
         }
+
     }
 };

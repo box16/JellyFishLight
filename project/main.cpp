@@ -23,12 +23,12 @@ int main() {
 
     ws2812_program_init(pio, sm, offset, WS2812_PIN, 800000, IS_RGBW);
 
-    SnakePattern pattern;
+    FadePattern pattern;
     Pixel pixel(pio);
+    uint counter = 0;
     while (1) {
-        for (uint i = 0; i < 1000; ++i) {
-            pattern.light_up(pixel,NUM_PIXELS,i);
-            sleep_ms(100);
-        }
+        pattern.light_up(pixel,NUM_PIXELS,counter);
+        counter++;
+        sleep_ms(100);
     } 
 }
