@@ -14,7 +14,8 @@ static constexpr bool IS_RGBW = false;
 static constexpr uint8_t NUM_PIXELS = 5;
 static constexpr uint8_t WS2812_PIN = 28;
 
-int main() {
+int main()
+{
     stdio_init_all();
 
     PIO pio = pio0;
@@ -26,9 +27,10 @@ int main() {
     FadePattern pattern;
     Pixel pixel(pio);
     uint counter = 0;
-    while (1) {
-        pattern.light_up(pixel,NUM_PIXELS,counter);
+    while (1)
+    {
+        pattern.light_up(pixel, NUM_PIXELS, counter);
         counter++;
         sleep_ms(100);
-    } 
+    }
 }

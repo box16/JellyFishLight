@@ -5,6 +5,7 @@ pico_generate_pio_header(jellyfishlight ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio OUT
 
 target_sources(jellyfishlight PRIVATE main.cpp)
 include_directories(${CMAKE_CURRENT_LIST_DIR})
+include_directories(${CMAKE_CURRENT_LIST_DIR}/LightingSystem)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/Pixel)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/LightingPattern)
 
