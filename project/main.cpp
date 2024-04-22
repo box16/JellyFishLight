@@ -24,13 +24,13 @@ int main()
 
     ws2812_program_init(pio, sm, offset, WS2812_PIN, 800000, IS_RGBW);
 
-    FadePattern pattern;
+    RandomFadePattern pattern;
     Pixel pixel(pio);
     uint counter = 0;
     while (1)
     {
         pattern.light_up(pixel, NUM_PIXELS, counter);
         counter++;
-        sleep_ms(100);
+        sleep_ms(10);
     }
 }
