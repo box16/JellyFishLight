@@ -5,6 +5,20 @@
 #include <random>
 #include <cmath>
 
+class SimpleAquaMarinePattern : public LightPatternInterface
+{
+public:
+    void light_up(const PixelInterface &pixel_interface,
+                  const uint pixel_num,
+                  const uint time) const
+    {
+        for (uint i = 0; i < pixel_num; i++)
+        {
+            pixel_interface.light_up(ColorCode(0x7f, 0xff, 0xd4));
+        }
+    }
+};
+
 class RandomFadePattern : public LightPatternInterface
 {
 public:
