@@ -9,6 +9,7 @@
 #include "hardware/pio.h"
 #include "Pixel/pixel.h"
 #include "LightingPattern/lighting_pattern.h"
+#include "TVDT18/TVDT18.h"
 #include <memory>
 #include <array>
 
@@ -39,21 +40,16 @@ int main()
     uint counter = 0;
 
     uint switch_counter = 0;
-    uint64_t last_debounce_time = 0;
-    const uint64_t debounce_delay = 200;
+    std::unique_ptr<SwitchInterface> tvdt18 = std::make_unique<TVDT18>(SWITCH,
+                                                                       200);
 
     while (1)
     {
-        bool button_pressed = gpio_get(SWITCH) == 1;
-        if (button_pressed)
+        tvdt18->CheckPress();
+        if (tvdt18->IsSwitched())
         {
-            uint64_t current_time = to_us_since_boot(get_absolute_time());
-            if (current_time - last_debounce_time > debounce_delay * 1000)
-            {
-                switch_counter++;
-                last_debounce_time = current_time;
-                counter = 0;
-            }
+            switch_counter++;
+            counter = 0;
         }
         patterns[switch_counter % PATTERN_NUM]->light_up(pixel, NUM_PIXELS, counter);
         counter++;
