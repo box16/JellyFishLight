@@ -42,6 +42,7 @@ int main()
         tvdt18->CheckPress();
         if (tvdt18->IsSwitched())
         {
+            patterns[switch_counter % LIGHTING_PATTERN_NUM]->Initialize();
             switch_counter++;
         }
 

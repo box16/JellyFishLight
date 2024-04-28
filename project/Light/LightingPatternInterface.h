@@ -6,4 +6,5 @@ class LightingPatternInterface
 {
 public:
     virtual std::vector<RGB> Next(const uint led_num) = 0;
+    virtual void Initialize() = 0;
 };

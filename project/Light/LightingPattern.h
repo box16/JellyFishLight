@@ -13,6 +13,7 @@ public:
         std::vector<RGB> result(led_num, rgb_);
         return result;
     }
+    void Initialize() {};
 
 private:
     RGB rgb_;
@@ -28,18 +29,22 @@ public:
         const uint8_t color2 = static_cast<uint8_t>((sin(radian + 2 * M_PI / 3) * 0.5 + 0.5) * 255);
         const uint8_t color3 = static_cast<uint8_t>((sin(radian + 4 * M_PI / 3) * 0.5 + 0.5) * 255);
 
-        std::random_device rd;
-        std::mt19937 g(rd());
+        std::mt19937 engine(2525);
 
         std::vector<RGB> result(led_num);
         for (uint i = 0; i < led_num; i++)
         {
             uint8_t colors[3] = {color1, color2, color3};
-            std::shuffle(std::begin(colors), std::end(colors), g);
+            std::shuffle(std::begin(colors), std::end(colors), engine);
             result[i] = RGB(colors[0], colors[1], colors[2]);
         }
         time++;
         return result;
+    }
+
+    void Initialize()
+    {
+        time = 0;
     }
 
 private:
@@ -64,6 +69,11 @@ public:
         }
         time++;
         return result;
+    }
+
+    void Initialize()
+    {
+        time = 0;
     }
 
 private:
