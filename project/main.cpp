@@ -8,7 +8,7 @@
 #include "ws2812.pio.h"
 #include "hardware/pio.h"
 #include "Pixel/pixel.h"
-#include "LightingPattern/lighting_pattern.h"
+#include "LightingPattern/LightingPattern.h"
 #include "Switch/TVDT18.h"
 #include <memory>
 #include <array>
@@ -32,7 +32,7 @@ int main()
 
     ws2812_program_init(pio, sm, offset, WS2812_PIN, 800000, IS_RGBW);
 
-    std::array<std::unique_ptr<LightPatternInterface>, PATTERN_NUM> patterns = {
+    std::array<std::unique_ptr<LightingPatternInterface>, PATTERN_NUM> patterns = {
         std::make_unique<SimpleAquaMarinePattern>(),
         std::make_unique<FadePattern>(),
         std::make_unique<RandomFadePattern>()};

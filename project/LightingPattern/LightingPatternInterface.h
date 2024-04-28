@@ -1,6 +1,6 @@
 #pragma once
 #include "Pixel/LEDInterface.h"
-class LightPatternInterface
+class LightingPatternInterface
 {
 public:
     virtual void light_up(const LEDInterface &led_interface,

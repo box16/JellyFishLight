@@ -1,11 +1,11 @@
 #pragma once
 
-#include "LightingSystem/LightingSystem.h"
+#include "LightingPatternInterface.h"
 #include <algorithm>
 #include <random>
 #include <cmath>
 
-class SimpleAquaMarinePattern : public LightPatternInterface
+class SimpleAquaMarinePattern : public LightingPatternInterface
 {
 public:
     void light_up(const LEDInterface &led_interface,
@@ -19,7 +19,7 @@ public:
     }
 };
 
-class RandomFadePattern : public LightPatternInterface
+class RandomFadePattern : public LightingPatternInterface
 {
 public:
     void light_up(const LEDInterface &led_interface,
@@ -43,7 +43,7 @@ public:
     }
 };
 
-class FadePattern : public LightPatternInterface
+class FadePattern : public LightingPatternInterface
 {
 public:
     void light_up(const LEDInterface &led_interface,
