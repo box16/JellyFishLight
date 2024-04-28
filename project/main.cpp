@@ -7,7 +7,7 @@
 #include "pico/stdlib.h"
 #include "ws2812.pio.h"
 #include "hardware/pio.h"
-#include "Light/WS2812.h"
+#include "Light/WS2812B.h"
 #include "Light/LightingPattern.h"
 #include "Switch/TVDT18.h"
 #include <memory>
@@ -45,7 +45,7 @@ int main()
             switch_counter++;
             counter = 0;
         }
-        patterns[switch_counter % PATTERN_NUM]->light_up(ws2812b, NUM_PIXELS, counter);
+        patterns[switch_counter % PATTERN_NUM]->LightUp(ws2812b, NUM_PIXELS, counter);
         counter++;
         sleep_ms(50);
     }

@@ -5,5 +5,5 @@
 class LEDInterface
 {
 public:
-    virtual void light_up(const RGB &rgb) const = 0;
+    virtual void LightUp(const RGB &rgb) const = 0;
 };

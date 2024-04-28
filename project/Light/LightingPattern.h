@@ -7,13 +7,13 @@
 class SimpleAquaMarinePattern : public LightingPatternInterface
 {
 public:
-    void light_up(const LEDInterface &led_interface,
-                  const uint pixel_num,
-                  const uint time) const
+    void LightUp(const LEDInterface &led_interface,
+                 const uint pixel_num,
+                 const uint time) const
     {
         for (uint i = 0; i < pixel_num; i++)
         {
-            led_interface.light_up(RGB(0x7f, 0xff, 0xd4));
+            led_interface.LightUp(RGB(0x7f, 0xff, 0xd4));
         }
     }
 };
@@ -21,9 +21,9 @@ public:
 class RandomFadePattern : public LightingPatternInterface
 {
 public:
-    void light_up(const LEDInterface &led_interface,
-                  const uint pixel_num,
-                  const uint time) const
+    void LightUp(const LEDInterface &led_interface,
+                 const uint pixel_num,
+                 const uint time) const
     {
         const float radian = (time % 360) * (M_PI / 180.0);
         const uint8_t color1 = static_cast<uint8_t>((sin(radian) * 0.5 + 0.5) * 255);
@@ -37,7 +37,7 @@ public:
         {
             uint8_t colors[3] = {color1, color2, color3};
             std::shuffle(std::begin(colors), std::end(colors), g);
-            led_interface.light_up(RGB(colors[0], colors[1], colors[2]));
+            led_interface.LightUp(RGB(colors[0], colors[1], colors[2]));
         }
     }
 };
@@ -45,9 +45,9 @@ public:
 class FadePattern : public LightingPatternInterface
 {
 public:
-    void light_up(const LEDInterface &led_interface,
-                  const uint pixel_num,
-                  const uint time) const
+    void LightUp(const LEDInterface &led_interface,
+                 const uint pixel_num,
+                 const uint time) const
     {
         const float radian = (time % 360) * (M_PI / 180.0);
         const uint8_t red = static_cast<uint8_t>((sin(radian) * 0.5 + 0.5) * 255);
@@ -56,7 +56,7 @@ public:
 
         for (uint i = 0; i < pixel_num; i++)
         {
-            led_interface.light_up(RGB(red, green, blue));
+            led_interface.LightUp(RGB(red, green, blue));
         }
     }
 };
