@@ -1,5 +1,4 @@
 #pragma once
-
 #include "LightingPatternInterface.h"
 #include <algorithm>
 #include <random>

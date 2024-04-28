@@ -7,8 +7,8 @@
 #include "pico/stdlib.h"
 #include "ws2812.pio.h"
 #include "hardware/pio.h"
-#include "Pixel/pixel.h"
-#include "LightingPattern/LightingPattern.h"
+#include "Light/pixel.h"
+#include "Light/LightingPattern.h"
 #include "Switch/TVDT18.h"
 #include <memory>
 #include <array>

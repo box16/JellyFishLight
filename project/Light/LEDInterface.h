@@ -1,6 +1,6 @@
 #pragma once
 #include "hardware/pio.h"
-#include "RGB/RGB.h"
+#include "RGB.h"
 
 class LEDInterface
 {

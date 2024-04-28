@@ -1,5 +1,4 @@
 #pragma once
-
 #include "LEDInterface.h"
 
 class Pixel : public LEDInterface

@@ -1,5 +1,6 @@
 #pragma once
-#include "Pixel/LEDInterface.h"
+#include "LEDInterface.h"
+
 class LightingPatternInterface
 {
 public:
