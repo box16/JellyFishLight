@@ -10,11 +10,31 @@ public:
     {
     }
 
-    uint32_t GRB() const
+    RGB()
+        : red_(0xFF), green_(0xFF), blue_(0xFF)
     {
-        return (static_cast<uint32_t>(green_) << 16) |
-               (static_cast<uint32_t>(red_) << 8) |
-               (static_cast<uint32_t>(blue_));
+    }
+
+    RGB operator+(const RGB &other) const
+    {
+        return RGB(red_ + other.GetRed(),
+                   green_ + other.GetGreen(),
+                   blue_ + other.GetBlue());
+    }
+
+    uint8_t GetRed() const
+    {
+        return red_;
+    }
+
+    uint8_t GetGreen() const
+    {
+        return green_;
+    }
+
+    uint8_t GetBlue() const
+    {
+        return blue_;
     }
 
 private:
