@@ -8,13 +8,13 @@
 class SimpleAquaMarinePattern : public LightPatternInterface
 {
 public:
-    void light_up(const PixelInterface &pixel_interface,
+    void light_up(const LEDInterface &led_interface,
                   const uint pixel_num,
                   const uint time) const
     {
         for (uint i = 0; i < pixel_num; i++)
         {
-            pixel_interface.light_up(ColorCode(0x7f, 0xff, 0xd4));
+            led_interface.light_up(RGB(0x7f, 0xff, 0xd4));
         }
     }
 };
@@ -22,7 +22,7 @@ public:
 class RandomFadePattern : public LightPatternInterface
 {
 public:
-    void light_up(const PixelInterface &pixel_interface,
+    void light_up(const LEDInterface &led_interface,
                   const uint pixel_num,
                   const uint time) const
     {
@@ -38,7 +38,7 @@ public:
         {
             uint8_t colors[3] = {color1, color2, color3};
             std::shuffle(std::begin(colors), std::end(colors), g);
-            pixel_interface.light_up(ColorCode(colors[0], colors[1], colors[2]));
+            led_interface.light_up(RGB(colors[0], colors[1], colors[2]));
         }
     }
 };
@@ -46,7 +46,7 @@ public:
 class FadePattern : public LightPatternInterface
 {
 public:
-    void light_up(const PixelInterface &pixel_interface,
+    void light_up(const LEDInterface &led_interface,
                   const uint pixel_num,
                   const uint time) const
     {
@@ -57,7 +57,7 @@ public:
 
         for (uint i = 0; i < pixel_num; i++)
         {
-            pixel_interface.light_up(ColorCode(red, green, blue));
+            led_interface.light_up(RGB(red, green, blue));
         }
     }
 };

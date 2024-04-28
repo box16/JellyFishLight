@@ -9,6 +9,7 @@ include_directories(${CMAKE_CURRENT_LIST_DIR}/LightingSystem)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/Pixel)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/LightingPattern)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/Switch)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/RGB)
 
 target_link_libraries(jellyfishlight PRIVATE pico_stdlib hardware_pio)
 pico_add_extra_outputs(jellyfishlight)

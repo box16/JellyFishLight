@@ -1,13 +1,12 @@
 #pragma once
 
-#include "LightingSystem/LightingSystem.h"
-#include "hardware/pio.h"
+#include "LEDInterface.h"
 
-class Pixel : public PixelInterface
+class Pixel : public LEDInterface
 {
 public:
-    Pixel(PIO pio) : PixelInterface(pio){};
-    void light_up(const ColorCode &color_code) const
+    Pixel(PIO pio) : LEDInterface(pio){};
+    void light_up(const RGB &color_code) const
     {
         pio_sm_put_blocking(pio_, 0, color_code.GRB() << 8u);
     }
