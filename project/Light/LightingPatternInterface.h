@@ -5,7 +5,5 @@
 class LightingPatternInterface
 {
 public:
-    virtual std::vector<RGB> LightUp(const LEDInterface &led_interface,
-                                     const uint len,
-                                     const uint time) const = 0;
+    virtual std::vector<RGB> Next(const uint led_num) = 0;
 };
