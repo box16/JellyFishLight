@@ -9,7 +9,7 @@
 #include "hardware/pio.h"
 #include "Pixel/pixel.h"
 #include "LightingPattern/lighting_pattern.h"
-#include "TVDT18/TVDT18.h"
+#include "Switch/TVDT18.h"
 #include <memory>
 #include <array>
 
