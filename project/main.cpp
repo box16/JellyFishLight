@@ -13,17 +13,17 @@
 #include <array>
 #include <vector>
 
-static constexpr uint8_t NUM_PIXELS = 5;
+static constexpr uint8_t PIXEL_NUM = 5;
+static constexpr uint8_t LIGHTING_PATTERN_NUM = 3;
 static constexpr uint8_t WS2812_PIN = 28;
 static constexpr uint8_t SWITCH_PIN = 27;
-static constexpr uint8_t PATTERN_NUM = 3;
 
 int main()
 {
     stdio_init_all();
 
-    std::array<std::unique_ptr<LightingPatternInterface>, PATTERN_NUM> patterns = {
-        std::make_unique<SimplePattern>(RGB(0x7f, 0xff, 0xd4)),
+    std::array<std::unique_ptr<LightingPatternInterface>, LIGHTING_PATTERN_NUM> patterns = {
+        std::make_unique<SimplePattern>(RGB(0x7f, 0xff, 0xd4)), // AquaMarine
         std::make_unique<FadePattern>(),
         std::make_unique<RandomFadePattern>()};
 
@@ -45,7 +45,7 @@ int main()
             switch_counter++;
         }
 
-        std::vector<RGB> next_rgb = patterns[switch_counter % PATTERN_NUM]->Next(NUM_PIXELS);
+        std::vector<RGB> next_rgb = patterns[switch_counter % LIGHTING_PATTERN_NUM]->Next(PIXEL_NUM);
         for (auto rgb : next_rgb)
         {
             ws2812b->LightUp(rgb);
