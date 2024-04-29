@@ -1,8 +1,8 @@
 #pragma once
-#include "LEDInterface.h"
 #include "RGB.h"
 #include <vector>
-class LightingPatternInterface
+
+class LightingPatternIF
 {
 public:
     virtual std::vector<RGB> Next(const uint led_num) = 0;

@@ -1,7 +1,7 @@
 #pragma once
 #include "RGB.h"
 
-class LEDInterface
+class ProgrammableLEDIF
 {
 public:
     virtual void LightUp(const RGB &rgb) const = 0;

@@ -1,5 +1,5 @@
 #pragma once
-#include "SwitchInterface.h"
+#include "Switch/SwitchInterface.h"
 
 class TVDT18 : public SwitchInterface
 {

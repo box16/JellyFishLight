@@ -1,8 +1,8 @@
 #pragma once
-#include "LEDInterface.h"
+#include "ProgrammableLEDIF.h"
 #include "ws2812.pio.h"
 
-class WS2812B : public LEDInterface
+class WS2812B : public ProgrammableLEDIF
 {
 public:
     WS2812B(const PIO pio,

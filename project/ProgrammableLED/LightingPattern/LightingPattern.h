@@ -1,10 +1,10 @@
 #pragma once
-#include "LightingPatternInterface.h"
+#include "LightingPatternIF.h"
 #include <algorithm>
 #include <random>
 #include <cmath>
 
-class SimplePattern : public LightingPatternInterface
+class SimplePattern : public LightingPatternIF
 {
 public:
     SimplePattern(const RGB &rgb) : rgb_(rgb){};
@@ -19,7 +19,7 @@ private:
     RGB rgb_;
 };
 
-class RandomFadePattern : public LightingPatternInterface
+class RandomFadePattern : public LightingPatternIF
 {
 public:
     std::vector<RGB> Next(const uint led_num)
@@ -51,10 +51,10 @@ private:
     uint64_t time = 0;
 };
 
-class FadePattern : public LightingPatternInterface
+class FadePattern : public LightingPatternIF
 {
 public:
-    FadePattern() : LightingPatternInterface(){};
+    FadePattern() : LightingPatternIF(){};
     std::vector<RGB> Next(const uint led_num)
     {
         const float radian = (time % 360) * (M_PI / 180.0);
