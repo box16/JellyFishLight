@@ -34,8 +34,8 @@ int main()
                                                                            false);
 
     uint switch_counter = 0;
-    std::unique_ptr<SwitchInterface> tvdt18 = std::make_unique<TVDT18>(SWITCH_PIN,
-                                                                       500);
+    std::unique_ptr<SwitchIF> tvdt18 = std::make_unique<TVDT18>(SWITCH_PIN,
+                                                                500);
 
     while (1)
     {

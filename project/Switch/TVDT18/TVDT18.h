@@ -1,7 +1,7 @@
 #pragma once
-#include "Switch/SwitchInterface.h"
+#include "Switch/SwitchIF.h"
 
-class TVDT18 : public SwitchInterface
+class TVDT18 : public SwitchIF
 {
 public:
     TVDT18(const uint8_t switch_pin,
